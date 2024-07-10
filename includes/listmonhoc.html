@@ -1,0 +1,17 @@
+<style>
+    .siTai:hover{
+          background-color: #ffc107;
+          font-weight: bold;
+      }
+</style>
+<div class="card my-5 ">
+  <div class="card-header"><i class="bi bi-list-task"></i> Danh sách các môn luyện thi</div>
+  <div class="card-body p-0 ">
+      <ul class="list-group " >
+          <li ng-click="confirm()" class="siTai list-group-item" ng-repeat="mh in Subjects">
+              <a ng-if="xn" class="text-decoration-none text-dark fs-6" href="#!/tracnghiem/{{mh.Id}}/{{mh.Name}}">
+                  {{mh.Name}}</a>
+          </li>
+      </ul>
+  </div>
+</div>

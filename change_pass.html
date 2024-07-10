@@ -1,0 +1,58 @@
+<div class="container" style="margin: 100px ">
+  <div class="row bg-white row-main">
+
+    <div class="col-md-12 left">
+      <div class="card-header  text-center text-dark mt-4 ">
+        <h2>Đổi mật khẩu</h2>
+        <div class="row  mt-2">
+
+
+        </div>
+
+      </div>
+      <div class="card-body">
+        <div class="alert alert-warning" ng-show="username==null">
+          <h2>Bạn cần đăng nhập trước khi đổi pass</h2>
+        </div>
+        <form name="frmdp" ng-show="username!=null"> 
+          <div class="form-group mb-3">
+            <label for="username">Tên đăng nhập:</label>
+            <input value="{{username}}" disabled type="text" class="form-control" name="username" placeholder="Nhập tên đăng nhập">
+            <em class="text-danger" ng-show="frmdp.username.$invalid"> Vui lòng điểm số 0-10</em>
+
+        </div>
+        <div class="form-group mb-3">
+            <label for="oldPassword">Mật khẩu cũ:</label>
+            <input ng-model="pass_old" name="pass_old" ng-minlength="6" required type="password" class="form-control" placeholder="Nhập mật khẩu cũ">
+            <em class="text-danger" ng-show="frmdp.pass_old.$invalid"> Vui lòng nhập hơn 6 ký tự</em>
+
+        </div>
+        <div class="form-group mb-3">
+            <label for="newPassword">Mật khẩu mới:</label>
+            <input ng-model="pass_new1" name="pass_new1" ng-minlength="6" required type="password" class="form-control" placeholder="Nhập mật khẩu mới">
+            <em class="text-danger" ng-show="frmdp.pass_new1.$invalid"> Vui lòng nhập hơn 6 ký tự</em>
+
+        </div>
+        <div class="form-group mb-3">
+            <label for="confirmPassword">Nhập lại mật khẩu:</label>
+            <input ng-model="pass_new2" name="pass_new2" ng-minlength="6" required type="password" class="form-control"  placeholder="Nhập lại mật khẩu">
+            <em class="text-danger" ng-show="frmdp.pass_new2.$invalid"> Vui lòng nhập hơn 6 ký tự</em>
+
+        </div>
+        
+        <div class=" mt-4 mb-3 float-end">
+          <button class="  btn button-secondary bg-secondary text-white mx-4" style="width: 100px;">
+          <a class="text-decoration-none text-white" href="#!"><h6 class="">Hủy</h6></a> 
+         </button>
+          <div ng-click="doimatkhau()" class=" btn button-warning bg-warning text-dark " style="width: 150px;">
+            <h6 class="">Đổi mật khẩu</h6>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

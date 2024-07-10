@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row bg-white row-main" style="margin: 70px 0px;">
+
+    <div class="col-md-12 left">
+      <div class="card-header  text-center text-dark mt-4 ">
+        <h2>Đăng ký</h2>
+        <div class="row  mt-2">
+          <div class="cold-flex ">
+            <button class="btn btn_01 border "><i class="bi bi-facebook"></i></button>
+            <button class="btn btn_01 border  mx-1"> <i class="bi bi-instagram"></i></button>
+            <button class="btn btn_01 border "> <i class="bi bi-google"></i></button>
+            <button class="btn btn_01 border  mx-1"><i class="bi bi-linkedin"></i></button>
+
+          </div>
+
+        </div>
+        <p class="mt-3 text-secondary-emphasis">Hoặc sử dụng email của bạn</p>
+      </div>
+      <div class="card-body">
+        <form name="frmdk">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom01">Tên đăng nhập</label>
+              <input required ng-minlength="3" ng-model="Student.username" name="username" type="" class="form-control"
+                id="exampleInputPassword1" placeholder="Tên đăng nhập">
+              <em class="text-danger" ng-show="frmdk.username.$invalid"> Tên đăng nhập >=3 ký tự</em>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom01">Họ tên</label>
+              <input required ng-model="Student.fullname" name="fullname" type="text" class="form-control"
+                id="validationCustom01" placeholder="First name" value="Mark" required>
+              <em class="text-danger" ng-show="frmdk.fullname.$invalid"> Họ tên chưa nhập</em>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+
+            </div>
+            <div class="col-md-4 mt-">
+              <label for="validationCustom01">Ngày sinh</label>
+              <div class="col">
+
+                <input required ng-model="Student.birthday" name="birthday" type="date" name="" id=""
+                  class="form-control" placeholder="dd/MM/yyyy">
+
+                <em class="text-danger" ng-show="frmdk.birthday.$invalid">Vui lòng nhập ngày sinh</em>
+
+                <!-- <span class=""><i class="bi bi-person-fill"></i></span> -->
+
+              </div>
+
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mật khẩu</label>
+            <input required ng-minlength="6" ng-model="Student.password" name="password" type="password"
+              class="form-control" id="exampleInputPassword1" placeholder="Mật khẩu">
+            <em class="text-danger" ng-show="frmdk.password.$invalid"> Mật khẩu >=6 ký tự</em>
+          </div>
+          <div class="form-group my-2">
+            <label for="exampleInputEmail1">Email </label>
+            <input required ng-model="Student.email" name="email" type="email" class="form-control"
+              id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@gmail.com">
+            <em class="text-danger" ng-show="frmdk.email.$invalid">Vui lòng nhập email</em>
+
+          </div>
+
+          <!-- <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+          <div>Giới tính</div>
+          <div class="form-check form-check-inline">
+            <input required ng-model="Student.gender" class="form-check-input" type="radio" name="gender"
+              id="inlineRadio1" value="Nam">
+            <label class="form-check-label" for="inlineRadio1">Nam</label>
+            <em class="text-danger" ng-show="frmdk.gender.$invalid">Vui lòng chọn giới tính</em>
+          </div>
+          <div class="form-check form-check-inline">
+            <input required ng-model="Student.gender" class="form-check-input" type="radio" name="gender"
+              id="inlineRadio2" value="Nữ">
+            <label class="form-check-label" for="inlineRadio2">Nữ</label>
+          </div>
+
+
+
+            </div>
+          </div>
+        </form>
+        <hr>
+        <div class="">
+          <button type="submit" ng-click="dangky()"
+            class=" my-3 px-1  float-end btn button-warning bg-warning text-dark " style="width: 200px;">
+            <h6 class="">Đăng ký</h6>
+          </button>
+          <a class="text-decoration-none" href="#">
+            <button class="col btn bg-body-secondary my-3 mx-2 px-3 float-end text-end text-end">
+              <h6 class="">Hủy</h6>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

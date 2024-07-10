@@ -1,0 +1,57 @@
+<div class="conatiner">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span class="text-warning">STUDY</span>FOCUS</a>
+            <b ng-if="username==null">Chào quý khach</b>
+            <b ng-if="username!=null">chào {{username}}</b>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active" href="#!gioithieu">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="course.html">Đề thi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mx-3" ng-if="username ==null" href="#!dangnhap">Đăng nhập</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#!lienhe">Liên hệ</a>
+                    </li>
+                    <li class="nav-item dropdown"> <!-- Mục Dropdown -->
+                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-person-fill"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                            <a class="dropdown-item" ng-if="username ==null"href="#!dangnhap">Đăng nhập</a>
+                            <a class="dropdown-item" ng-if="username ==null" href="#!quenpass">Quên mật khẩu</a>
+                            <a class="dropdown-item" ng-if="username == null" href="#!dangky">Đăng ký</a>
+                            <div class="dropdown-divider"></div> <!-- Tạo ra đường gạch ngang -->
+                            <a class="dropdown-item" ng-if="username != null" ng-click="thoat()" href="">Đăng xuất</a>
+                            <a class="dropdown-item" ng-if="username != null" href="#!doipass">Thay đổi mật khẩu</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dn"><i class="bi bi-linkedin "></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dn"><i class="bi bi-facebook "></i></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="banner  ">
+    <img src="images/banner/pd1.jpg" class="container-fluid px-0" alt="">
+</div>

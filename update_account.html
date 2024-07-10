@@ -1,0 +1,59 @@
+<div class="container" style="margin: 100px ">
+  <div class="row bg-white row-main">
+
+    <div class="col-md-12 left">
+      <div class="card-header  text-center text-dark mt-4 ">
+        <h2>Cập nhật hồ sơ</h2>
+        <div class="row  mt-2">
+
+
+        </div>
+
+      </div>
+      <div class="card-body">
+        <div class="alert alert-warning" ng-show="username==null">
+          <h2>Bạn cần đăng nhập trước khi đổi pass</h2>
+        </div>
+        <form name="frmHS" ng-show="username!=null"> 
+          <div class="form-group mb-3">
+            <label for="username">Tên đăng nhập:</label>
+            <input value="{{username}}" disabled type="text" class="form-control" name="username" placeholder="Nhập tên đăng nhập">
+        </div>
+        <div class="form-group mb-3">
+            <label for="oldPassword">Họ tên/ {{fullname}}</label>
+            <input value="{{fullname}}" required ng-model="HoTen" name="hoTen" type="text" class="form-control" placeholder="{{fullname}}">
+            <em class="text-danger" ng-show="frmHS.hoTen.$invalid">Vui lòng nhập email</em>
+
+        </div>
+        <div class="form-group mb-3">
+            <label for="newPassword">Ngày sinh/ {{birthday| date: 'dd-MM-yyyy'}}</label>
+            <input value="{{birthday}}" required ng-model="NgaySinh" name="ngaySinh" type="date" class="form-control" placeholder="Nhập mật khẩu mới">
+            <em class="text-danger" ng-show="frmHS.ngaySinh.$invalid">Vui lòng nhập email</em>
+
+        </div>
+        <div class="form-group mb-3">
+          <label for="exampleInputEmail1">Email/ {{email}}</label>
+          <input required ng-model="Gmail" name="email" type="email" class="form-control"
+            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{email}}">
+          <em class="text-danger" ng-show="frmHS.email.$invalid">Vui lòng nhập email</em>
+        </div>
+        
+          </div>
+         
+        </div>
+     
+        
+        <div class=" mt-4 mb-3 float-end">
+          <button class="  btn button-secondary bg-secondary text-white mx-4" style="width: 100px;">
+          <a class="text-decoration-none text-white" href="#!"><h6 class="">Hủy</h6></a> 
+         </button>
+          <div ng-click="capNhat()" class=" btn button-warning bg-warning text-dark " style="width: 150px;">
+            <h6 class="">Cập nhật</h6>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+
+  </div>
+</div>

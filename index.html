@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện thi 247</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            /* background: #f8f9fa; */
+            background: #eef9fd;
+
+        }
+
+
+        .carousel-item {
+            height: 729px;
+            /* height: 100vh; */
+            min-height: 300px;
+        }
+
+        .carousel-caption {
+            bottom: 220px;
+            z-index: 2;
+        }
+
+        .carousel-caption h5 {
+            font-size: 45px;
+            text-transform: uppercase;
+            letter-spacing: 20px;
+            margin-top: 2000px;
+        }
+
+        .carousel-caption p {
+            width: 60%;
+            margin: auto;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .carousel-inner::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 729px;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.7);
+           
+        }
+
+        section .row img {
+            max-width: 100%;
+        }
+
+        section .text-heading {
+            margin-top: 120px;
+        }
+
+        .btn_01 {
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+            /* Làm cho nút thành hình tròn */
+            font-size: 20px;
+            /* Đặt kích thước chữ của nút */
+            background-color: #ffc107;
+            color: black;
+
+
+        }
+
+        .section-1 .btn {
+            border-radius: 20px;
+        }
+
+        .section-3 img {
+            width: 100%;
+            height: 200px;
+            background-position: center;
+            object-fit: cover;
+        }
+
+        .section-4 img:hover {
+
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .section-5 .btn {
+            border-radius: 20px;
+        }
+
+        footer {
+            background-color: #f0eeed;
+        }
+
+
+
+        footer .row {
+
+            min-height: 200px;
+            position: relative;
+        }
+
+        footer a {
+            color: black;
+
+        }
+
+        header ul a:hover {
+            text-decoration: overline;
+        }
+    </style>
+</head>
+
+<body ng-app="myapp_index" ng-controller="myctrl">
+    <header ng-include=" 'includes/header_INDEX.html' ">
+    </header>
+    <main>
+        <ng-view></ng-view>
+    </main>
+    <div class="container-fluid px-0" ng-include="'includes/footer_index.html'">
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.8.2/angular-route.js"></script>
+<script>
+    var app = angular.module("myapp_index", ['ngRoute'])
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when("/", { templateUrl: "includes/home_INDEX.html", controller: "myctrl" })
+            .when("/dangky", { templateUrl: "sign_up.html", controller: "myctrl" })
+            .when("/dangnhap", { templateUrl: "login.html", controller: "myctrl" })
+            .when('/doipass', { templateUrl: "change_pass.html", controller: "myctrl" })
+            .when('/quenpass', { templateUrl: "forget_pass.html", controller: "myctrl" })
+            .when('/capnhathoso', { templateUrl: "update_account.html", controller: "myctrl" })
+            .when('/khoahoc', { templateUrl: "demo_course.html", controller: "myctrl" })
+            .when('/gioithieu', { templateUrl: "includes/home_ABOUT_US.html", controller: "myctrl" })
+            .when('/lienhe', { templateUrl: "contact.html", controller: "myctrl" })
+            .when("/tracnghiem/:idMH/:tenMH", { templateUrl: "exam.html", controller: "quizctrl" })
+            .otherwise({ redirectTo: "/", controller: "myctrl" })
+    }
+    )
+    app.controller("myctrl", function ($scope, $rootScope, $http, $location, $timeout, $window) {
+
+
+        // xác nhận
+        $scope.xn = true;
+
+        $scope.confirm = function () {
+            var xacNhan = $window.confirm('Bạn có chắc không ?');
+            if (xacNhan) {
+                $scope.xn = true;
+            }
+        }
+        //
+        $scope.Subjects = [];
+        $http.get("db/Subjects.js").then(
+            function (res) { $scope.Subjects = res.data; console.log(res.data) },
+            function (res) { alert("Error khi request môn học"); console.log(res) }
+        );
+        // hiển thị thời gian
+        $scope.showMsg = true;
+        $timeout(function () {
+            $scope.showMsg = false;
+        }, 5000);
+        
+        // Hàm kiểm tra tính duy nhất của email
+        function checkTrung(email) {
+            // Lặp qua danh sách sinh viên
+            for (let i = 0; i < $scope.Students.length; i++) {
+                // Nếu email đã tồn tại, trả về false
+                if ($scope.Students[i].email === email) {
+                    return false;
+                }
+            }
+            // Nếu không tìm thấy email, trả về true
+            return true;
+        }
+        //
+        // đăng ký
+        // lấy db đưa vào Students
+        $scope.Students = [];
+        $scope.Students = JSON.parse(localStorage.getItem('students'));
+        //students được dùng để lưu trữ dữ liệu từ local
+        if ($scope.Students == null)
+            $http.get("db/Students.js").then(
+                function (res) {
+                    $scope.Students = res.data;
+                    localStorage.setItem('students', JSON.stringify(res.data))
+                },
+                function (res) { alert("Lỗi khi lấy students"); }
+            )
+
+       
+
+        $scope.dangky = function () {
+            var checkTrung = $scope.Students.some(s => s.email === $scope.Student.email);
+
+            if (checkTrung) {
+                // Email đã tồn tại, thông báo lỗi
+                alert("Email đã tồn tại. Vui lòng chọn email khác.");
+            }
+            else {
+                $scope.Students.push($scope.Student); // Student là ng-model bên form push vào 
+                // rỗng Students
+                localStorage.setItem('students', JSON.stringify($scope.Students));
+                alert("Đã đăng ký thành công tài khoản " + $scope.Student.username);
+                $location.path('/');
+            }
+        }
+        //
+
+        // đăng nhập
+        //hàm đăng nhập****
+        $rootScope.username = sessionStorage.getItem('username');
+        $rootScope.fullname = sessionStorage.getItem('fullname');
+        //$rootScope.email = sessionStorage.getItem('email');
+        //    $rootScope.gender = sessionStorage.getItem('gender');
+        $rootScope.birthday = new Date(sessionStorage.getItem('birthday'));
+        
+
+
+        $scope.dangnhap = function () {
+            $rootScope.username = "";
+            u = $scope.u;
+            p = $scope.p;
+            index = $scope.Students.findIndex(st => st.username == u && st.password == p)
+            if (index >= 0) {
+                $rootScope.username = u;
+                alert("Đăng nhập thành công")
+                sessionStorage.setItem('username', u);
+                sessionStorage.setItem('fullname', $scope.Students[index].fullname); // Lưu fullname vào sessionStorage
+                sessionStorage.setItem('email', $scope.Students[index].email); // Lưu fullname vào sessionStorage
+                //  sessionStorage.setItem('gender', $scope.Students[index].gender); // Lưu fullname vào sessionStorage
+                sessionStorage.setItem('birthday', new Date($scope.Students[index].birthday)); // Lưu fullname vào sessionStorage
+                
+
+                
+                $location.path('/');
+
+            }
+            else {
+                alert("Không thành công")
+                $rootScope.username = null;
+            }
+        }
+        //
+
+        // quên pass
+        $scope.quenpass = function () {
+            const user = $scope.Students.find(s => s.email === $scope.email);
+            if (user) {
+                alert("Mật khẩu bạn là: " + user.password);
+            } else {
+                alert("Không có email này " + $scope.email)
+            }
+        }
+        //
+        // cập nhật hồ sơ
+        $scope.capNhat = function () {
+            // Kiểm tra xem tất cả các trường đều được nhập
+            if (!$scope.HoTen || !$scope.NgaySinh || !$scope.Gmail ) {
+                alert("Vui lòng nhập đầy đủ thông tin.");
+                return; // Dừng hàm nếu có trường không được nhập
+            }
+            user = $scope.Students.find(s => s.username == $rootScope.username);  // tìm chỉ số học sinh dựa vào người đang đăng nhập
+            user.fullname = $scope.HoTen; // ng-model bên kia
+            user.birthday = $scope.NgaySinh;
+            user.email = $scope.Gmail;
+            
+            
+            localStorage.setItem('students', JSON.stringify($scope.Students));
+            $rootScope.fullname = $scope.HoTen;
+            $rootScope.birthday = $scope.NgaySinh
+            $rootScope.email = $scope.Gmail;
+           
+
+            alert("Cập nhật thành công");
+            location.path('/')
+
+
+
+
+        }
+        //
+
+        // đổi mật khẩu
+        $scope.doimatkhau = function () {
+            user = $scope.Students.find(s => s.username == $rootScope.username);
+            if (user == null) { alert("Không có username trong db"); return; }
+            if (user.password != $scope.pass_old) { alert("Pass cũ không đúng"); return; }
+            if ($scope.pass_new1 != $scope.pass_new2) { alert("2 Pass mới không giống"); return; }
+            user.password = $scope.pass_new1 // code đổi
+            localStorage.setItem('students', JSON.stringify($scope.Students)); alert(" Đổi mật khẩu thành công");
+            $location.path('/');
+        };
+        //
+
+        // đăng xuất
+        $scope.thoat = function () {
+            $rootScope.username = null;
+            sessionStorage.removeItem("username");
+            $location.path('/')
+        }
+        //
+
+    }
+    )
+    app.controller("quizctrl", function ($scope, $http, $routeParams, $interval, $window) {
+
+
+        $scope.start = 0;
+        $scope.pageSize = 1; // 0 < 1 ;only phan tu thu 0
+        $scope.idMH = $routeParams.idMH;
+        $scope.tenMH = $routeParams.tenMH;
+
+        $scope.first = function () {
+            $scope.start = 0;
+            
+
+        }
+        $scope.next = function () {
+            if ($scope.start < $scope.caccauhoi.length - $scope.pageSize) {
+                $scope.start += $scope.pageSize
+              
+
+
+            }
+        }
+        $scope.last = function () {
+            sotrang = Math.ceil($scope.caccauhoi.length / $scope.pageSize)
+            $scope.start = (sotrang - 1) * $scope.pageSize
+             
+        }
+
+        $scope.prev = function () {
+            if ($scope.start > 0) {
+                $scope.start -= $scope.pageSize
+                 
+
+            }
+        }
+        // tính giờ tính điểm
+        $scope.diem = 0;
+        $scope.tongThoiGian = 3600; // Khởi tạo số giây bằng 3600 (1 tiếng)
+        // Cập nhật thời gian mỗi giây
+        var interval = $interval(function () {
+            if ($scope.tongThoiGian > 0) {
+                $scope.tongThoiGian--;
+            } else {
+                // Hết thời gian, thực hiện hành động cần thiết
+                //   $scope.hienThiDiem = true; // Ẩn ban đầu, sẽ hiển thị khi kết thúc
+                $window.alert('Hết thời gian làm bài !');
+                $interval.cancel(interval);
+                //   $scope.hienThiDiem = true; // Ẩn ban đầu, sẽ hiển thị khi kết thúc
+
+
+            }
+        }, 1000);
+        // Hàm chuyển đổi thời gian từ giây sang phút và giây
+    $scope.formatTime = function(totalSeconds) {
+        var minutes = Math.floor(totalSeconds / 60);
+        var seconds = totalSeconds % 60;
+        return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    };
+        $scope.soCauDung = 0;
+
+        $scope.kiemtraPA = function (idPA, idPADung, diem) {
+            if (idPA == idPADung) {
+                $scope.diem += diem
+            }
+            else {
+                if ($scope.diem == 0) {
+                    $scope.diem == 0
+
+                } else {
+                    $scope.diem -= diem
+
+                }
+            }
+        }
+        //
+        // làm lại
+        $scope.lamLai = function () {
+            var xacNhan = $window.confirm('Bạn có chắc không ?');
+            if (xacNhan) {
+                $scope.diem = 0;
+                $scope.start = 0;
+                $scope.tongThoiGian = 3600 ;
+            }
+        }
+        //
+        // Kết thúc
+        $scope.hienThiDiem = false; // Ẩn ban đầu, sẽ hiển thị khi kết thúc
+        $scope.show = false
+        $scope.isPass = false
+        $scope.ketThuc = function () {
+            var xacNhan = $window.confirm('Bạn có chắc kết thúc không ?');
+            if (xacNhan) {
+                $scope.hienThiDiem = true; // Ẩn ban đầu, sẽ hiển thị khi kết thúc
+                $scope.tyLeDiem = ($scope.diem / ($scope.caccauhoi.length) * 100)
+                $scope.show = true
+                if ($scope.tyLeDiem >= 50) {
+                    $scope.isPass = true
+                }
+
+            }
+        }
+        //
+        // xác nhận
+        $scope.confirm = function () {
+
+            var xacNhan = $window.confirm('Bạn có chắc thi không ?');
+            $scope.xn = false;
+            if (xacNhan) {
+                $scope.xn = true;
+            }
+        }
+        //
+        $scope.caccauhoi = [];
+        $http.get("db/Quizs/" + $scope.idMH + ".js").then(
+            function (res) { $scope.caccauhoi = res.data; console.log(res.data) },
+            function (res) { console.log(res) }
+        );
+    });
+
+</script>
+
+</html>

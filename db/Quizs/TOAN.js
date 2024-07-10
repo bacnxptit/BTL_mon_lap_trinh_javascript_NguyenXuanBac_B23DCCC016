@@ -1,0 +1,16 @@
+[{"Id":24916,"Text":"Phần áo của số phức z = (2 - i)(1 + i) bằng","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"3"},{"Id":103344,"Text":"-1"},{"Id":103345,"Text":"-3"},{"Id":103346,"Text":"1"}]},
+{"Id":24917,"Text":"Cho khối chóp S.ABC có chiều cao bằng 5, đáy ABC có diện tích bằng 6. Thể tích khối chóp. S.ABC bằng:","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"15"},{"Id":103344,"Text":"11"},{"Id":103345,"Text":"10"},{"Id":103346,"Text":"30"}]},
+{"Id":24918,"Text":"Số nghiệm thực của phương trình 2^(x^2+1) = 4  là:","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"3"},{"Id":103344,"Text":"2"},{"Id":103345,"Text":"1"},{"Id":103346,"Text":"0"}]},
+{"Id":24919,"Text":"Trong không gian Oxyz, cho mặt cầu (S):(x-1)^2+(y+2)^2+(z-3)^2=4 . Tâm của (S) có toạ độ là","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"(2;1;3)"},{"Id":103344,"Text":"(-1;2;3)"},{"Id":103345,"Text":"(1;-2;3)"},{"Id":103346,"Text":"(-1;-2;3)"}]},
+{"Id":24920,"Text":"Cho khối chóp có diện tích đáy bằng 7a^2 và chiều cao bằng 9a .Thể tích của khối chóp đã cho bằng","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"9a^3"},{"Id":103344,"Text":"21a^3"},{"Id":103345,"Text":"83a^3"},{"Id":103346,"Text":"63a^3"}]},
+{"Id":24921,"Text":"Có bao nhiêu cách xếp 5 học sinh ngồi vào một dãy gồm 5 chiếc ghế  sao cho mỗi ghế có đúng một học sinh ngồi ?","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"600"},{"Id":103344,"Text":"25"},{"Id":103345,"Text":"120"},{"Id":103346,"Text":"3125"}]},
+{"Id":24922,"Text":"Số phức z = 4-5i có phần ảo bằng :","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"-5"},{"Id":103344,"Text":"-4"},{"Id":103345,"Text":"-5i"},{"Id":103346,"Text":"4"}]},
+{"Id":24923,"Text":"Cho cấp số cộng (Un) với U1 = 3 và U2 = 7 .Công sai của cấp số cộng đã cho bằng ","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"7/3"},{"Id":103344,"Text":"3/7"},{"Id":103345,"Text":"-4"},{"Id":103346,"Text":"4"}]},
+{"Id":24924,"Text":"Cho hình lập phương ABCD.A'B'C'D';.Góc giữa hai đường thẳng CD và AB' là","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"90°"},{"Id":103344,"Text":"60°"},{"Id":103345,"Text":"30°"},{"Id":103346,"Text":"45°"}]},
+{"Id":24925,"Text":"Cho hàm số y = f(x) có đạo hàm f'(x) = (x-1)(x-3) .Hàm số đã cho nghịch biến trên khoảng nào dưới đây ?","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"(0,3)"},{"Id":103344,"Text":"(3,+∞)"},{"Id":103345,"Text":"(-∞,2)"},{"Id":103346,"Text":"(1,3)"}]},
+{"Id":24926,"Text":"Giá trị lớn nhất của hàm số f(x) = -x^4 + 6x^2 -4 bằng :","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"-4"},{"Id":103344,"Text":"5"},{"Id":103345,"Text":"√3"},{"Id":103346,"Text":"-√3"}]},
+{"Id":24927,"Text":"Cho hình trụ có bán  kính đáy bằng r và diện tích xung quanh bằng S.Chiều cao của hình trụ đã cho bằng  ","Marks":1,"AnswerId":103344,"Answers":[{"Id":103343,"Text":"S/2πr"},{"Id":103344,"Text":"S/πr"},{"Id":103345,"Text":"2S/πr"},{"Id":103346,"Text":"S/πr"}]}
+
+
+
+]

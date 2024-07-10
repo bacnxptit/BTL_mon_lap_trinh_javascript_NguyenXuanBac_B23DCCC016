@@ -1,0 +1,58 @@
+<style>
+   
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><span class="text-warning">LUYỆN THI</span> 247</a>
+        <!-- <b ng-if="username==null">Chào quý khach</b> -->
+                <!-- <b ng-if="username!=null">chào {{username}}</b> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Trang chủ</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link active" href="#!gioithieu">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#!khoahoc">Đề thi</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link active mx-3" ng-if="username ==null" href="#!dangnhap">Đăng nhập</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link mx-3 active" href="#!lienhe">Liên hệ</a>
+                </li>
+                <li class="nav-item dropdown badge bg-warning h4"> <!-- Mục Dropdown -->
+                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-person-fill">
+                            <b href="" ng-if="username==null">Đăng nhập</b>
+                            <b ng-if="username!=null"> {{fullname}}</b></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                        <a class="dropdown-item" ng-if="username ==null"href="#!dangnhap">Đăng nhập</a>
+                        <a class="dropdown-item py-3" ng-if="username ==null" href="#!quenpass">Quên mật khẩu</a>
+                        <a class="dropdown-item" ng-if="username == null" href="#!dangky">Đăng ký</a>
+                        <a class="dropdown-item" ng-if="username != null" href="#!capnhathoso">Hồ sơ</a>
+                        <a class="dropdown-item py-3" ng-if="username != null" ng-click="thoat()" href="">Đăng xuất</a>
+                        <a class="dropdown-item" ng-if="username != null" href="#!doipass">Thay đổi mật khẩu</a>
+
+                    </div>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" href="#dn"><i class="bi bi-linkedin "></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#dn"><i class="bi bi-facebook "></i></a>
+                </li> -->
+            </ul>
+
+        </div>
+    </div>
+</nav>

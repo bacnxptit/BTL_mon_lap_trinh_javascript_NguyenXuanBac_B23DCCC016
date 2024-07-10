@@ -1,0 +1,20 @@
+
+<div class="container-fluid px-0">
+    <header ng-include=" 'includes/header.html' ">
+    </header>
+    <main class="mt-5 mb-5">
+        <div class="col-10 m-auto">
+            <div class="row">
+                <article class="col-8">
+                    <ng-view></ng-view>
+                </article>
+                <aside class="col-4" ng-include="'includes/listmonhoc.html'">
+
+                </aside>
+            </div>
+        </div>
+    </main>
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+    <div class="container-fluid px-0" ng-include="'includes/footer.html'">
+    </div>
+</div>

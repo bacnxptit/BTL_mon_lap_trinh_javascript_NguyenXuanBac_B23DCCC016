@@ -1,0 +1,44 @@
+<style>
+    .card-body img:hover{
+        transform: scale(1.1);
+            transition: 0.5s;
+    }
+    body{
+        background-image: ("images/banner/p1.jpg");
+    }
+</style>
+<div class="alert alert-warning text-center" style="margin: 50px 0px;" ng-show="username!=null"
+    ng-if="showMsg">
+    <h2>Đăng nhập thành công</h2>
+  </div>
+<div class="container-fluid px-0">
+    <!-- <header ng-include=" 'includes/header.html' ">
+        </header> -->
+    <main class="mt-5 mb-5">
+        <div class="col-10 m-auto">
+            <div class="row">
+                <article class="col-8 ">
+                    <div class="card  mt-5">
+                        <div class="card-header text-center h5">
+                            Danh sách luyện thi
+                        </div>
+                    <div class="row px-3">
+                        <div class="col-sm-3 col-md-3 text-center mt-2" ng-repeat="mh in Subjects| limitTo :16:4">
+                            <div class="card" >
+                                <div class="card-body"  >
+                                    <a ng-click="confirm()" href="#!/tracnghiem/{{mh.Id}}/{{mh.Name}}"><img src="images/logos/{{mh.Logo}}" class="w-100" alt=""></a>
+                                </div>
+                                <div class="card-footer">
+                                    <a class=" text-dark text-decoration-none" href="#!/tracnghiem/{{mh.Id}}/{{mh.Name}}">{{mh.Name}}</a>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </article>
+                <aside class="col-4" ng-include="'includes/listmonhoc.html'">
+                </aside>
+            </div>
+        </div>
+    </main>
+</div>

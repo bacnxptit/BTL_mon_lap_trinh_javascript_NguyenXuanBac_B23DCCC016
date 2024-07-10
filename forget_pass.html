@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row bg-white row-main w-50  " style="margin: 100px 300px;">
+      <div class="card text-center">
+      <div class="col-md-12 text-center ">
+       
+        <div class="card-bodytext-dark mt-4 ">
+          <h2>Tìm tài khoản của bạn</h2>
+          <hr>
+          <div class="row  mt-2">
+          </div>
+        </div>
+        <div class="card-body">
+          <form name="frmquenpass">
+          <div class="row">
+            <p class="text-start">Vui lòng nhập email để tìm kiếm tài khoản của bạn.</p>
+            <div class=" mb-3">
+              <!-- <label for="validationCustom01">Email <span class="text-danger">*</span></label> -->
+              <input 
+              ng-model="email" name="email"
+              type="email" class="form-control p-2" id="validationCustom01" placeholder="@gmail.com" value=""
+                required>
+                <em class="text-danger" ng-show="frmquenpass.email.$invalid"> Vui lòng nhập đúng thông tin</em>
+
+            </div>
+          </div>
+          <hr>
+          <div class=" float-end mb-3 ">
+            <a class="text-decoration-none" href="#">
+            <button class="col btn bg-body-secondary mx-2 px-3 text-dark text-end" >
+              <h6 class="">Hủy</h6>
+            </button>
+          </a>
+            <button ng-click="quenpass()" class="col btn button-warning bg-warning text-dark text-end" >
+              <h6 class="">Tìm kiếm</h6>
+            </button>
+          </div>
+         </form>
+        </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>

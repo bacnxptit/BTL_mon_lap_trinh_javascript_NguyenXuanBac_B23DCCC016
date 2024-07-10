@@ -1,0 +1,87 @@
+
+<div ng-include=" 'includes/carousel_INDEX.html' " >
+</div>
+<section class="section-1">
+    <div class="container">
+        <p class="text-center text-heading  h2">Sứ mệnh của chúng tôi</p>
+        <hr>
+        <div class="row mt-5">
+            <div class="col">
+                <div>
+                    <img src="images/banner/pd1.jpg" alt="">
+                </div>
+            </div>
+            <div class="col mt-5">
+                <h5>Cung Cấp Các Đề Thi Với Chất Lượng Tốt Nhất , Mới Nhất Hiện Nay </h5>
+                <p>Hệ thống câu hỏi đa dạng, phong phú từ cơ bản đển nâng cao, nơi tập trung đầy đủ kiến thức về
+                    tất cả các môn học! Chúng tôi tự hào giới thiệu một nguồn luyện thi chất lượng giúp người dùng có
+                    thể tự tin chinh phục mọi dạng câu hỏi
+                    .</p>
+                <p><a href="#!gioithieu" class="btn btn-warning mt-3">Tìm hiểu thêm</a></p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section-2">
+    <div class="container">
+        <p class="text-center text-heading  h2">Dịch vụ cung cấp</p>
+        <h5 class="text-center">Giúp bạn củng cố kiến thức chuyên môn</h5>
+        <hr>
+        <div class="row mt-5 text-center" style="min-height: 300px;">
+            <div class="col " style="background-color: white;">
+                <button class="btn btn_01 my-2"><i class="bi bi-question-circle-fill"></i></button>
+                <p class="h2">Hệ thống câu hỏi</p>
+                <p>Hệ thống câu hỏi đa dạng, phong phú từ cơ bản đển nâng cao, nơi tập trung đầy đủ kiến thức về
+                    hệ thống câu hỏi! Chúng tôi tự hào giới thiệu một nguồn thông tin chất lượng và chi tiết về
+                    lĩnh vực này, nhằm mang lại sự hiểu biết sâu sắc và tổng quan vững về cách hệ thống câu hỏi
+                    hoạt động.</p>
+            </div>
+            <div class="col  mx-5" style="background-color: white;">
+                <button class="btn btn_01 my-2"><i class="bi bi-substack"></i></button>
+                <p class="h2">Đa dạng môn thi</p>
+                <p>Hệ thống đề thi mới nhất, chất lượng nhất , đầy đủ mọi môn học đa dạng đề thi giúp  các bạn
+                    có thể lữa chọn được những môn cần mình cần ôn tập.Hệ thống đề thi luôn luôn được cập nhật mới nhất 
+                   do đó các bạn có cơ hội làm quen với nhiều kiến thức hay </p>
+            </div>
+            <div class="col " style="background-color: white;">
+                <button class="btn btn_01 my-2"><i class="bi bi-alarm-fill"></i></button>
+                <p class="h2">Kiểm soát thời gian</p>
+                <p>Kiểm soát chất lượng, thời lượng môn học, quản lý tiến độ học tập, nơi nâng cao kỹ năng quản
+                    lý thời gian của bạn để đạt được hiệu suất và sự cân bằng cuộc sống tốt nhất. Chúng tôi cung
+                    cấp một nguồn thông tin đa dạng và thiết thực về cách bạn có thể hiệu quả hóa thời gian của
+                    mình, đặt ưu tiên công việc, và tạo ra kế hoạch hàng ngày mang lại sự thành công.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="section-3 mt-5 mb-5">
+    <img src="images/banner/p1.jpg" alt="">
+</section>
+
+<section class="section-4 mb-5">
+    <div class="container">
+        <p class="text-center text-heading  h2">Top Đề Thi nổi bật</p>
+        <h5 class="text-center">Những đề thi được làm nhiều nhất</h5>
+        <hr>
+        <div class="row px-3">
+            <div class="col-sm-3 col-md-3 text-center mt-2" ng-repeat="mh in Subjects| limitTo :4:3">
+                <div class="card" >
+                    <div class="card-body"  >
+                        <a ng-click="confirm()" href="#!/tracnghiem/{{mh.Id}}/{{mh.Name}}"><img src="images/logos/{{mh.Logo}}" class="w-100" alt=""></a>
+                    </div>
+                    <div class="card-footer">
+                        <a class="text-dark text-decoration-none" href="#!/tracnghiem/{{mh.Id}}/{{mh.Name}}">{{mh.Name}}</a>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-5 mb-5">
+    <div class="container text-center">
+        <div class="btn btn-warning  p-3"><a href="#!khoahoc" class="text-dark text-decoration-none"><b>Đề thi mới nhất</b></a></div>
+    </div>
+</section>

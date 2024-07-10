@@ -1,0 +1,17 @@
+<h1> Danh mục môn thi</h1>
+<div class="row" >
+    <div class="col-sm-3 col-md-3 text-center" ng-repeat="mh in Subjects">
+        <div class="card" >
+            <div class="card-body">
+                <a href="#"><img src="images/logos/{{mh.Id}}.jpg" class="w-100" alt=""></a>
+            </div>
+            <div class="card-footer text-body-secondary"> {{mh.Name| uppercase}} 
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+

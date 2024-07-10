@@ -1,0 +1,62 @@
+<div class="alert alert-warning text-center" style="margin: 100px 0px;" ng-show="username==null">
+    <h2>Bạn cần đăng nhập trước khi thực hiện bài thi</h2>
+</div>
+<main ng-if="username!=null" class=" main" style="margin: 150px 0px;">
+    <div class="container">
+        <div class="card ">
+            
+            <div class="card-header h5 text-start" ng-if="hienThiDiem">Kết quả thi</div>
+            <div ng-if="hienThiDiem" class="alert">
+                <p>Chúc mừng bạn <span class="h5 text-danger">{{fullname |uppercase}}</span> đã hoàn thành bài thi</p>
+                <p>Điểm của bạn là <b class="text-danger">{{diem}}</b></p>
+                <p>Đạt <b class="text-danger"> {{tyLeDiem|number:0}}%/ {{caccauhoi.length}}</b> câu</p>
+            </div>
+            <span class="h2 text-center alert alert-success" ng-if="isPass && show">Bạn đã đạt yêu cầu
+                <p  class="btn btn-success float-end"><a class="text-decoration-none text-white" href="#!/khoahoc">làm lại</a></p>
+
+
+            </span>
+            <span class="h2 text-center alert alert-danger" ng-if="!isPass && show">Bạn không đạt yêu cầu
+            <p  class="btn btn-danger float-end"><a class="text-decoration-none text-white" href="#!/khoahoc">làm lại</a></p>
+            </span>
+            <div ng-if="!hienThiDiem" class="card-header">
+                <h5 class="my-0"><i class="bi bi-patch-question-fill"></i> {{tenMH}}</h5>
+                <div class="badge bg-info badge-dark float-end mx-3">
+                    <span>  Thời gian còn lại: {{ formatTime(tongThoiGian) }}</span>
+                    <!-- <div id="countdown" class="float-end "></div>
+                    <div id="progress" class="float-end mr-3"></div> -->
+                </div>
+                <p class="text-end ">Câu: {{start+1}}/{{caccauhoi.length}}</p>
+            </div>
+            <div ng-if="!hienThiDiem" class="card-body" ng-repeat="ch in caccauhoi | limitTo:pageSize:start">
+                <p><span class="strong">Câu {{start +1}}:
+
+                    </span>{{ch.Text}} <span class="float-end"></span>
+                </p>
+
+                <hr>
+                <div class="form-check" ng-repeat="p in ch.Answers">
+                    <input class="form-check-input" type="radio" name="cauhoi_{{ch.Id}}" id="exampleRadios1"
+                        value="{{p.Id}}" ng-model="answer" ng-click="kiemtraPA(p.Id,ch.AnswerId,ch.Marks)" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        {{p.Text}}
+                    </label>
+                </div>
+
+            </div>
+            <div ng-if="!hienThiDiem" class="card-footer">
+                <div class="text-center" style="margin-bottom: -30px ;">
+                    <div ng-click="first()" class="btn  btn-primary"><i class="bi bi-skip-backward-fill"></i></div>
+                    <div ng-click="prev()" class="btn mx-3 btn-primary"><i class="bi bi-skip-start-fill"></i></div>
+                    <div ng-click="next()" class="btn btn-primary"><i class="bi bi-skip-end-fill"></i></div>
+                    <div ng-click="last()" class="btn mx-3 btn-primary"><i class="bi bi-skip-forward-fill"></i></div>
+                </div>
+                <p class="float-start"> <b class="">Điểm:</b> {{diem}}
+
+                </p>
+                <div ng-click="lamLai()" class="btn btn-danger float-end ">Làm lại</div>
+                <div ng-click="ketThuc()" class="btn btn-success float-end me-4">Kết thúc</div>
+            </div>
+        </div>
+    </div>
+</main>

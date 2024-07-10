@@ -1,0 +1,56 @@
+
+<div class="container mt-5" id="frmLogin" >
+  <div class="row bg-white row-main" style="margin: 100px 0px; border-radius: 24px;">
+    <div class="col-md-6 left">
+      <div class="card-header  text-center text-dark mt-4 ">
+        <h2>Đăng nhập</h2>
+        <div class="row  mt-2">
+          <div class="cold-flex ">
+            <button class="btn btn_01 border "><i class="bi bi-facebook"></i></button>
+            <button class="btn btn_01 border  mx-1"> <i class="bi bi-instagram"></i></button>
+            <button class="btn btn_01 border "> <i class="bi bi-google"></i></button>
+            <button class="btn btn_01 border  mx-1"><i class="bi bi-linkedin"></i></button>
+
+          </div>
+
+        </div>
+        <p class="mt-3 text-secondary-emphasis">Hoặc sử dụng email của bạn</p>
+      </div>
+      <div class="card-body">
+        <form name="frmdn">
+          <div class="form-group mb-3">
+              <label for="username">Tên đăng nhập:</label>
+              <input ng-model="u" required name="username" type="text" class="form-control"  placeholder="Nhập tên đăng nhập">
+              <em class="text-danger" ng-show="frmdn.username.$invalid">Chưa nhập tên đăng nhập</em>
+          </div>
+
+          <div class="form-group mb-3">
+              <label for="password">Mật khẩu:</label>
+              <input ng-model="p" required name="password" type="password" class="form-control" placeholder="Nhập mật khẩu">
+              <em class="text-danger" ng-show="frmdn.password.$invalid">Chưa nhập mật khẩu</em>
+          </div>
+
+          <div class="form-group form-check mb-3">
+              <input type="checkbox" class="form-check-input" id="remember" name="remember">
+              <label class="form-check-label" for="remember">Ghi nhớ tên đăng nhập</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" ng-click="dangnhap()">Đăng Nhập</button>
+      </form> 
+      </div>
+    </div>
+    <div class="col-md-6 right bg-warning mt-5 col-right" style="  border-radius: 120px 10px 10px 60px;">
+      <div class="text text-center mt-5 ">
+        <h3>Xin chào bạn</h3>
+        <p class="my-4">Chần chờ gì nữa nếu bạn chưa có tài khoản cá nhân, hãy trải nghiệm những tiện ích chúng
+          tôi mang lại.
+        </p>
+        <div class=" mt-4 mb-3  ">
+          <button class=" btn button-warning bg-warning text-dark border border-dark " style="width: 200px;">
+            <a href="#!dangky" class="text-dark" style="text-decoration: none;"><h6 class="">Đăng ký</h6></a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
